@@ -1,0 +1,90 @@
+{
+  "email": {
+    "options": {
+      "base": "Email",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "DENY",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
+    },
+    "dataSource": "mail",
+    "public": false
+  },
+  "user": {
+    "options": {
+      "base": "User",
+      "relations": {
+        "accessTokens": {
+          "model": "accessToken",
+          "type": "hasMany",
+          "foreignKey": "userId"
+        }
+      },
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "DENY",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "accessToken": {
+    "options": {
+      "base": "AccessToken",
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "DENY",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
+    },
+    "dataSource": "db",
+    "public": true
+  },
+  "product": {
+    "options": {
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "DENY",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$owner"
+        }
+      ]
+    },
+    "properties": {},
+    "public": true,
+    "dataSource": "db"
+  },
+  "category": {
+    "options": {
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "DENY",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        }
+      ]
+    },
+    "properties": {},
+    "public": true,
+    "dataSource": "db"
+  }
+}
