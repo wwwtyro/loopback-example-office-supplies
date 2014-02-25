@@ -43,8 +43,8 @@ slc v2.1.1 (node v0.10.24)
 ### 1. Create the application using the `slc` command line tool.
 
 ```sh
-mkdir access-control
-cd access-control
+mkdir loopback-example-access-control
+cd loopback-example-access-control
 slc lb project server
 ```
 
