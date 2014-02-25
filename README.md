@@ -48,7 +48,7 @@ cd access-control
 slc lb project server
 ```
 
-### 2. Define a `Bank` model to store a set of `Bank`s in the database.
+### 2. Define a `product` model to persist a list of products.
 
 ```sh
 cd server
