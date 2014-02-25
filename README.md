@@ -5,8 +5,8 @@
 ### Clone the project and install the server dependencies
 
 ```sh
-git clone git@github.com:strongloop/loopback-example-access-control.git
-cd loopback-example-access-control
+git clone git@github.com:strongloop/loopback-example-office-supplies.git
+cd loopback-example-office-supplies
 npm install
 ```
 
@@ -43,8 +43,8 @@ slc v2.1.1 (node v0.10.24)
 ### 1. Create the application using the `slc` command line tool.
 
 ```sh
-mkdir loopback-example-access-control
-cd loopback-example-access-control
+mkdir loopback-example-office-supplies
+cd loopback-example-office-supplies
 slc lb project server
 ```
 
