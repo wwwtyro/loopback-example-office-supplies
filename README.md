@@ -63,12 +63,18 @@ slc lb model category
 
 ### 4. Setup a relationship between Categories and Products.
 
-Add the following relationship to `model.json`.
+Edit the `models.json` file, and look for the following lines:
+```JSON
+ "product": {                                                                                                       
+    "properties": {},
+    "public": true,
+    "dataSource": "db"
+  },
+  ...
+```
+Before the closing curly brace (`}`) add the following:
 
 ```JSON
-
-  ...
-
   "product": {
     "options": {
       "relations": {
@@ -85,9 +91,6 @@ Add the following relationship to `model.json`.
       }
     }
   }
-
-  ...
-
 ```
 
 ### 6. Secure all the APIs.
