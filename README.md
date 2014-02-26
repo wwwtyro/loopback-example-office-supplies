@@ -63,39 +63,56 @@ slc lb model category
 
 ### 4. Setup a relationship between Categories and Products.
 
-Edit the `models.json` file, and look for the following lines:
+Edit the `models.json` file, and replace the following lines:
 ```JSON
- "product": {                                                                                                       
+ "product": { 
     "properties": {},
     "public": true,
     "dataSource": "db"
   },
   ...
 ```
-Before the closing curly brace (`}`) add the following:
+with the following:
 
 ```JSON
-  "product": {
+  "product": {                                                                                                       
     "options": {
       "relations": {
         "category": {
           "model": "category",
           "type": "belongsTo",
           "foreignKey": "categoryId"
-         },
-         "owner": {
-           "model": "category",
-           "type": "belongsTo",
-           "foreignKey": "ownerId"
-         }
-      }
-    }
-  }
+        },
+        "owner": {
+          "model": "category",
+          "type": "belongsTo",
+          "foreignKey": "ownerId"
+        }
+      },
+      "acls": [
+        {
+          "accessType": "*",
+          "permission": "DENY",
+          "principalType": "ROLE",
+          "principalId": "$everyone"
+        },
+        {
+          "accessType": "*",
+          "permission": "ALLOW",
+          "principalType": "ROLE",
+          "principalId": "$owner"
+        }
+      ]
+    },
+    "properties": {},
+    "public": true,
+    "dataSource": "db"
+  },
 ```
 
 ### 6. Secure all the APIs.
 
-This will prevent any unauthorized access to the REST api.
+This will prevent any unauthorized access to the REST API.
 
 ```sh
 slc lb acl --all-models --deny --everyone
