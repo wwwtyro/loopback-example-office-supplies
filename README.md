@@ -89,20 +89,6 @@ with the following:
           "foreignKey": "ownerId"
         }
       },
-      "acls": [
-        {
-          "accessType": "*",
-          "permission": "DENY",
-          "principalType": "ROLE",
-          "principalId": "$everyone"
-        },
-        {
-          "accessType": "*",
-          "permission": "ALLOW",
-          "principalType": "ROLE",
-          "principalId": "$owner"
-        }
-      ]
     },
     "properties": {},
     "public": true,
