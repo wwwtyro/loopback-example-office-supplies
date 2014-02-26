@@ -75,7 +75,7 @@ Edit the `models.json` file, and replace the following lines:
 with the following:
 
 ```JSON
-  "product": {                                                                                                       
+  "product": { 
     "options": {
       "relations": {
         "category": {
