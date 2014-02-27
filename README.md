@@ -118,7 +118,7 @@ var product = require('./app.js').models.product;
 product.create({
   name: 'pencil',
   price: 0.99,
-  categoryId: categoryId // the id of the category this product belongs to
+  categoryId: categoryId, // the id of the category this product belongs to
   ownerId: ownerId       // the id of the user who owns this product
 }, function(err, pencil) {
   console.log(pencil);
