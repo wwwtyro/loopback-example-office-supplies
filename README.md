@@ -112,15 +112,24 @@ slc lb acl --model product --allow --owner --all
 
 ### 8. Create a product (Node.js)
 
-```js
-var product = require('./app.js').models.product;
+Add the following code in `/models/products.js`:
 
-product.create({
-  name: 'pencil',
-  price: 0.99,
-  categoryId: categoryId, // the id of the category this product belongs to
-  ownerId: ownerId       // the id of the user who owns this product
-}, function(err, pencil) {
-  console.log(pencil);
+```js
+var app = require('../app');
+var product = app.models.product;
+var category = app.models.category;
+
+category.create({name: 'stationary'}, function(err, stationary) {
+  product.create({
+    name: 'pencil',
+    price: 0.99,
+    categoryId: stationary.id,
+    ownerId: stationary.id
+  }, function() {
+    product.findOne({where: {categoryId: stationary.id}}, function(err, pencil) {
+      console.log(pencil);
+    });
+  });
 });
+
 ```
