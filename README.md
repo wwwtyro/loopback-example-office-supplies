@@ -147,6 +147,6 @@ Now you can view the LoopBack API Explorer at http://0.0.0.0:3000/explorer.
 In addition to the standard endpoints for users, accessTokens, applications, push, installations, and notifications, you will see endpoints for the products and categories models you created.
 
 To see the data you added, click:
-1.  */products*
-2. *Find all instances of the model matched by filter from the data source*.
-3. *Try it out!*
+ 1.  **/products**
+ 2. **Find all instances of the model matched by filter from the data source**.
+ 3. **Try it out!**
