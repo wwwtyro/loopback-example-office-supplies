@@ -88,7 +88,7 @@ with the following:
           "type": "belongsTo",
           "foreignKey": "ownerId"
         }
-      },
+      }
     },
     "properties": {},
     "public": true,
