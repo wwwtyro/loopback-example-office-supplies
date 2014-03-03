@@ -105,14 +105,14 @@ var app = require('../app');
 var product = app.models.product;
 var category = app.models.category;
 
-category.create({name: 'stationary'}, function(err, stationary) {
+category.create({name: 'stationery'}, function(err, stationery) {
   product.create({
     name: 'pencil',
     price: 0.99,
-    categoryId: stationary.id,
-    ownerId: stationary.id
+    categoryId: stationery.id,
+    ownerId: stationery.id
   }, function() {
-    product.findOne({where: {categoryId: stationary.id}}, function(err, pencil) {
+    product.findOne({where: {categoryId: stationery.id}}, function(err, pencil) {
       console.log(pencil);
     });
   });
