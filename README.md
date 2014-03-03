@@ -96,20 +96,6 @@ with the following:
   },
 ```
 
-### 6. Secure all the APIs.
-
-This will prevent any unauthorized access to the REST API.
-
-```sh
-slc lb acl --all-models --deny --everyone
-```
-
-### 7. Allow admins to modify products
-
-```
-slc lb acl --model product --allow --owner --all
-````
-
 ### 8. Create a product (Node.js)
 
 Add the following code in `/models/products.js`:
@@ -141,12 +127,61 @@ Now run the app as follows.  Make sure you are in the `server` directory:
 $ slc run
 ```
 
-### 10. Check out the API
+### 10. Check out your APIs with the built-in API Explorer
 
-Now you can view the LoopBack API Explorer at http://0.0.0.0:3000/explorer.  
+View your application's APIs with the LoopBack API Explorer at http://0.0.0.0:3000/explorer.  
 In addition to the standard endpoints for users, accessTokens, applications, push, installations, and notifications, you will see endpoints for the products and categories models you created.
 
-To see the data you added, click:
+Click on **/products** to see the REST endpoints for the products model.
+
+You can see the "product" data you added programmatically, click:
  1.  **/products**
- 2. **Find all instances of the model matched by filter from the data source**.
+ 2. **GET / Find all instances of the model matched by filter from the data source**.
  3. **Try it out!**
+
+In the **Response Body** you'll see the operation returns the data you added:
+
+```
+[
+  {
+    "id": 1,
+    "categoryId": 1,
+    "ownerId": 1,
+    "name": "pencil",
+    "price": 0.99
+  }
+]
+```
+
+If you want to convince yourself that the write APIs also work, try this:
+
+ 1. Click **PUT /products Update an existing model instance or insert a new one into the data source**.
+ 2. Copy the data returned from the above GET operation (as shown above), and paste it in the **Value** field under **Parameters**, but edit it so it has a unique `id` value and a different product name, as shown for example below.
+ 3. Click **Try it Out!** to perform the PUT operation.
+ 4. Repeat the GET operation you performed previously to confirm that the data was saved and is returned by the query.
+
+```
+[
+  {
+    "id": 2,
+    "categoryId": 1,
+    "ownerId": 1,
+    "name": "pen",
+    "price": 0.99
+  }
+]
+```
+
+### 6. Secure all the APIs.
+
+This will prevent any unauthorized access to the REST API.
+
+```sh
+slc lb acl --all-models --deny --everyone
+```
+
+### 7. Allow admins to modify products
+
+```
+slc lb acl --model product --allow --owner --all
+````
