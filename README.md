@@ -96,7 +96,7 @@ with the following:
   },
 ```
 
-### 8. Create a product (Node.js)
+### 5. Create a product (Node.js)
 
 Add the following code in `/models/products.js`:
 
@@ -119,7 +119,7 @@ category.create({name: 'stationery'}, function(err, stationery) {
 });
 ```
 
-### 9. Run the app
+### 6. Run the app
 
 Now run the app as follows.  Make sure you are in the `server` directory:
 
@@ -127,7 +127,7 @@ Now run the app as follows.  Make sure you are in the `server` directory:
 $ slc run
 ```
 
-### 10. Check out your APIs with the built-in API Explorer
+### 7. Check out your APIs with the built-in API Explorer
 
 View your application's APIs with the LoopBack API Explorer at http://0.0.0.0:3000/explorer.  
 In addition to the standard endpoints for users, accessTokens, applications, push, installations, and notifications, you will see endpoints for the products and categories models you created.
@@ -172,7 +172,7 @@ If you want to convince yourself that the write APIs also work, try this:
 ]
 ```
 
-### 6. Secure all the APIs.
+### 8. Secure all the APIs.
 
 This will prevent any unauthorized access to the REST API.
 
@@ -180,7 +180,7 @@ This will prevent any unauthorized access to the REST API.
 slc lb acl --all-models --deny --everyone
 ```
 
-### 7. Allow admins to modify products
+### 9. Allow admins to modify products
 
 ```
 slc lb acl --model product --allow --owner --all
